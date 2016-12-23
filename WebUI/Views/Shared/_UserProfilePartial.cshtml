@@ -1,0 +1,19 @@
+﻿@model Domain.Models.User
+
+<div class="post">
+
+    @if (Model.Profile.PathAvatar != null)
+    {
+        <img style="height: 80px !important;" src="@Model.Profile.PathAvatar">
+    }
+    else
+    {
+        <img style="height: 80px !important;" src="~/Content/resource/icon/ava.png">
+    }
+    <p style="display: inline; font-size: 23px;">@@@Model.Username</p>
+    @if (Model.Profile.Bio != null)
+    {
+        <p style="display: inline;  font-size: 15px;">Biography: @Model.Profile.Bio</p>
+    }
+    @Html.Partial("_FollowButtonPartial", Model)
+</div>

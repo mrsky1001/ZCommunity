@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Domain.Models.User>
+
+@{
+    ViewBag.Title = "Profiles";
+}
+
+@Html.Partial("_Menu")
+<div class="contentCont">
+    <div class="_post_content" style="min-width: 100%;">
+        @foreach (var user in Model)
+        {
+            @Html.Partial("_UserProfilePartial", user);
+        }
+    </div>
+</div>

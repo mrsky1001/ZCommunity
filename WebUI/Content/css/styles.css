@@ -1,0 +1,213 @@
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+ 
+.field-validation-valid {
+    display: none;
+}
+ 
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+ 
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+ 
+.validation-summary-valid {
+    display: none;
+}
+/* фон*/
+
+@font-face {
+    font-family: 'warfaceRegular';
+    src: url('../resource/fonts/warfaceRegular.ttf') format('truetype');
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    color: #c7d4d4;
+    font-family: "warfaceRegular" !important;
+}
+
+body {
+    background-color: #191919;
+}
+.imgResize:hover img {
+     width:500px;
+}
+
+/*панель*/
+#panelHeder {
+    background: #262626 !important;
+}
+
+.textPanel {
+    border-radius: 5px;
+    border: none;
+    background: none;
+    color: #f4a460;
+    width: auto !important;
+    font-size: 25px;
+    display: inline-flex;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 3px;
+    cursor: pointer;
+}
+
+.textPanel:hover {
+    border-radius: 5px;
+    box-shadow: 0 0 5px 1px #d2691e;
+    transition: box-shadow .7s;
+}
+
+.navMenu {
+    background-color: #262626;
+    border: 0;
+    margin-left: 13%;
+    width: 68%;
+    height: auto;
+    overflow: hidden;
+}
+
+/*sign in*/
+table td, tr {
+    border-style: hidden;
+}
+
+.inpButton {
+    border-radius: 5px;
+    border: none;
+    background: none;
+    color: #f4a460 !important;
+    width: auto !important;
+    font-size: 21px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 3px;
+    margin-left: 27%;
+    cursor: pointer;
+}
+
+    .inpButton:hover {
+        border-radius: 5px;
+        box-shadow: 0 0 5px 1px #d2691e;
+        transition: box-shadow .7s;
+    }
+
+.inpName {
+    color: inherit;
+    margin: 10px;
+}
+
+.inpName input {
+    color: black;
+}
+
+/*content*/
+.post_setMessage {
+    border: 1px;
+    border-color: #c7d4d4;
+    background-color: #262626;
+    width: 50%;
+}
+
+.post_img {
+    float: right;
+    width: 47%;
+    margin: 0;
+    margin-top: 5px;
+    background-color: #262626;
+}
+
+.contentCont {
+    border: none;
+    margin-left: 25%;
+    width: 50%;
+    height: auto;
+    overflow: hidden;
+}
+
+._post_content {
+    float: left;
+    margin: 5px;
+    height: auto;
+    overflow: hidden;
+}
+
+.post {
+    margin-top: 10px;
+    border: 1px;
+    border-color: #c7d4d4;
+    background-color: #262626;
+    padding: 5px;
+    padding-bottom: 10px;
+}
+
+.post_full_like {
+    height: auto;
+}
+
+a {
+    color: #f4a460;
+    font-size: 16px !important;
+}
+
+.iconLi {
+    margin-top: 10px;
+    opacity: 1;
+    transition: opacity .5s;
+    cursor: pointer;
+}
+
+    .iconLi:hover {
+        opacity: 0.7;
+        transition: opacity .5s;
+    }
+
+.post_header {
+    height: auto;
+    color: #f4a460;
+    font-size: 20px;
+}
+
+.newsCont {
+    height: auto;
+}
+
+/*панель слева*/
+.side_bar ul {
+    list-style: outside none none;
+}
+
+.side_bar {
+    border-width: 10px !important;
+    border-top-width: 5px !important;
+    border-right: 5px;
+    border-left: 5px;
+    border-bottom: 5px;
+    border-color: #c7d4d4 !important;
+    background-color: #262626;
+    float: left;
+    margin-left: 15%;
+    margin-right: 20px;
+    padding: 10px;
+}
+
+@media screen and (max-width: 800px) {
+    .navMenu {
+        margin-left: 0;
+        width: auto;
+    }
+
+    .textPanel {
+        margin: 0 !important;
+        float: none !important;
+    }
+}

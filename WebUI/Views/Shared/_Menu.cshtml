@@ -1,0 +1,38 @@
+﻿<div class="side_bar">
+    <ul>
+        <li class="iconLi">
+            @using (Html.BeginForm("Index", "Profile", FormMethod.Get))
+            {
+                @Html.AntiForgeryToken()
+                <img class="opacitY" src="~/Content/resource/icon/my.png">
+                <input autocomplete="off" class="btn btn-navbar " type="submit" value="Profile" style="background-color: inherit; color: #f4a460;" />
+            }
+        </li>
+        <li class="iconLi">
+
+            @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+            {
+                @Html.AntiForgeryToken()
+                <img class="opacitY" src="~/Content/resource/icon/messages.png">
+                <input autocomplete="off" class="btn btn-navbar " type="submit" value="Messages" style="background-color: inherit; color: #f4a460; " />
+            }
+        </li>
+        <li class="iconLi">
+            @using (Html.BeginForm("Followers", "Follow", FormMethod.Get))
+            {
+                @Html.AntiForgeryToken()
+                <img class="opacitY" src="~/Content/resource/icon/followers.png">
+                <input autocomplete="off" class="btn btn-navbar " type="submit" value="Followers" style="background-color: inherit; color: #f4a460; " />
+            }
+
+        </li>
+        <li class="iconLi">
+            @using (Html.BeginForm("Profiles", "Follow"))
+            {
+                <img class="opacitY" src="~/Content/resource/icon/followings.png">
+                <input autocomplete="off" class="btn btn-navbar " type="submit" value="Followings" style="background-color: inherit; color: #f4a460;  " />
+            }
+
+        </li>
+    </ul>
+</div>

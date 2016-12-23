@@ -1,0 +1,42 @@
+﻿@model WebUI.ViewModel.EditProfileViewModel
+
+@Html.Partial("_Menu")
+<div class="contentCont" style="margin-top: -10px !important;">
+    <div class="post" style="width: 100%; height: auto">
+        <p style="text-align: center; font-size: 25px;">Edit profile</p>
+        @using (Html.BeginForm("Edit", "Profile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div style="margin: 0 0 0 40%;">
+                
+                @Html.HiddenFor(m => m.Id)
+
+                @Html.LabelFor(m => m.Email)
+                <div align="left" style="color: black !important;">
+                    @Html.EditorFor(m => m.Email, new { @autocomplete = "off" })
+                </div>
+
+                @Html.LabelFor(m => m.Name)
+                <div align="left" style="color: black !important;">
+                    @Html.EditorFor(m => m.Name, new { @autocomplete = "off" })
+                </div>
+
+                @Html.LabelFor(m => m.Website)
+                <div align="left" style="color: black !important;">
+                    @Html.EditorFor(m => m.Website, new { @autocomplete = "off" })
+                </div>
+
+                @Html.LabelFor(m => m.Bio)
+                <div align="left" style="color: black !important;">
+                    @Html.TextAreaFor(m => m.Bio, new { @autocomplete = "off" })
+                </div>
+
+                <input style="display: none;" type="file" name="files" id="file1" onChange="myFunc(this)" multiple/>
+                <input style="margin: 10px 0 0 0; display: block;" autocomplete="off" id="inp1" class="inpButton" type="button" value="Upload avatar" onclick="file1.click(); this.style.display = 'none';"/>
+                <div align="left" id="images"></div>
+                <div align="center" class="inpName">@Html.ValidationSummary()</div>
+                <input style="display: block; margin-left: 50%" autocomplete="off" class="inpButton" type="submit" value="Save"/>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,59 @@
+﻿<script type="text/javascript" src="~/Content/js/jquery.min.js"></script>
+
+@Html.Partial("_Menu")
+<div class="contentCont">
+    @{
+        Html.RenderPartial("_AddMessage");
+    }
+    <div class="_post_content" style="min-width: 100%;">
+        @foreach (var message in Messages.GetTimelineFor(CurrentUser.Id))
+        {
+            if (message != null && message.Status != null)
+            {
+                <div class="post">
+                    <div class="post_header">
+                        <img style="display: inline; border-radius: 100px; width: 50px; height: 50px;" src="@message.Author.Profile.PathAvatar"/>
+                        <p style="display: inline; color: inherit"> §@message.Author.Username</p>
+                        <p style="display: block; font-size: 12px; color: #605859"> @message.DateCreated.Day.@message.DateCreated.Month.@message.DateCreated.Year</p>
+                    </div>
+                    <div class="newsCont">
+                        @if (message.Images.Count != 0)
+                        {
+                            <div align="center">
+                                <div class="slider">
+                                    <ul >
+                                        @foreach (var img in message.Images)
+                                        {
+                                            <li>
+                                                <img style="margin-top: -20px; display: inline; max-width: 350px; max-height: 350px;" class="imgResize" src="@img.Path"/>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        }
+                        <p style="margin-top: 10px; margin-left: 25px;">#/ @message.Status /#</p>
+                        <div style="float: right; margin-top: -40px; margin-right: 25px;">
+                            @if (Security.IsAuthenticated)
+                            {
+                                var isLike = message.Likes.Any(u => u.MessageId == message.Id && u.IsLike);
+
+                                var routeName = isLike ? "Dislike" : "Like";
+
+                                using (var commentForm = Html.BeginRouteForm(routeName, new { controller = "Comment", action = routeName }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <input style="display: none" id="idMessage" name="idMessage" type="text" value="@message.Id" />
+                                    <input style="" autocomplete="off" class="inpButton" type="submit" value="❤ @routeName" />
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<link rel="stylesheet" href="~/Content/css/slider.css">
+    <script type="text/javascript" src="~/Content/js/slider.js"></script> 

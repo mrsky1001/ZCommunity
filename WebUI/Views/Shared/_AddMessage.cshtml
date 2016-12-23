@@ -1,0 +1,23 @@
+﻿@model WebUI.ViewModel.CreateMessageViewModel
+
+<div class="_post_content post_setMessage">
+    <p style="text-align: center; font-size: 23px;">Add Message</p>
+    @using (Html.BeginForm("AddMessage", "Comment", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="inpName">
+            @Html.AntiForgeryToken()
+            @Html.TextBoxFor(m => m.Status, new { @autocomplete = "off", @style = "width: 100%;" })
+        </div>
+        <div style="float: left;" class="inpName">
+            <input style="display: none;" type="file" name="files" id="file1" onChange="myFunc(this)" multiple />
+            <input style="margin-left: 0;" id="inp1" autocomplete="off" class="inpButton" type="button" value="Upload img" onclick="file1.click();" />
+        </div>
+        <div style="float: right;" class="inpName">
+            <input autocomplete="off" class="inpButton" type="submit" value="Send" />
+        </div> 
+    }
+</div>
+<div class="_post_content post_img">
+    <p style="text-align: center; font-size: 23px;">Uploaded image</p>
+    <div align="center" id="images"></div>
+</div>

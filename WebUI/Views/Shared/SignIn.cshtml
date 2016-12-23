@@ -1,0 +1,14 @@
+﻿@model WebUI.ViewModel.LoginSignupViewModel
+<div class="contentCont">
+    <div class="post" style="width: 100%;">
+        <p style="text-align: center; font-size: 25px;">SignIn</p>
+        @using (var loginForm = Html.BeginForm("SignIn", "Account", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div align="center" class="inpName">@Html.TextBoxFor(m => m.Login.Username, new {@autocomplete = "off",placeholder = "username"})</div>
+            <div align="center" class="inpName">@Html.PasswordFor(m => m.Login.Password, new { @autocomplete = "off", placeholder = "password"})</div>
+            <div align="center" class="inpName">@Html.ValidationSummary()</div>
+            <div align="center" class="inpName"><input class="inpButton" autocomplete="off" type="submit" value="Log In" /></div>
+        }
+    </div>
+</div>
